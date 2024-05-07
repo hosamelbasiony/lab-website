@@ -1,6 +1,5 @@
-import Image from "next/image";
-import { useLocale } from "next-intl";
-import { client, urlFor } from "@/app/lib/sanity";
+import { useLocale, useTranslations } from "next-intl";
+import { client } from "@/app/lib/sanity";
 import { simpleBlogCard } from "@/app/lib/interface";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { MapPinIcon } from "@heroicons/react/24/outline";
@@ -14,7 +13,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const revalidate = 60 // revalidate at most every minute
+export const revalidate = 60; // revalidate at most every minute
 
 const getData = async (locale: string) => {
   const query = `
@@ -34,6 +33,7 @@ const getData = async (locale: string) => {
 export default async function Branches() {
   const locale = useLocale();
   const data: simpleBlogCard[] = await getData(locale);
+  const t = useTranslations("Index");
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-12">
@@ -57,7 +57,7 @@ export default async function Branches() {
               <div>
                 <Button asChild className="mt-6">
                   <Link href="/">
-                    Book now <ArrowLongRightIcon className="h-6 w-12" />
+                    {t("book")} <ArrowLongRightIcon className="h-6 w-12" />
                   </Link>
                 </Button>
               </div>
