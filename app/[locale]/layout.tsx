@@ -29,12 +29,6 @@ export default function LocaleLayout({
 }>) {
   const t = useTranslations("Index");
 
-  // getData(locale).then((ret) => {
-  //   if (ret.length) labData = ret[0];
-  // });
-
-  // let labData = await getData(locale);
-
   return (
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <body className={poppins.className + " bg-grayss-50"}>

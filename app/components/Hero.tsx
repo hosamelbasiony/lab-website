@@ -5,6 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
+export const revalidate = 60 // revalidate at most every minute
+
 const getData = async (locale: string) => {
     const query = `
       *[_type == 'hero' && locale == '${locale}' && labid == '${process.env.LAB_ID}']`;

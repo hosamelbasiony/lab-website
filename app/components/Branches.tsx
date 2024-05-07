@@ -14,6 +14,8 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+export const revalidate = 60 // revalidate at most every minute
+
 const getData = async (locale: string) => {
   const query = `
   *[_type == 'branch' && locale == '${locale}' && labid == '${process.env.LAB_ID}' ]{

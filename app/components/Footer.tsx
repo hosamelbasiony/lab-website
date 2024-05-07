@@ -3,6 +3,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { client } from "@/app/lib/sanity";
 import React from "react";
 
+export const revalidate = 60 // revalidate at most every minute
+
 const getData = async (locale: string) => {
   const query = `
     *[_type == 'hero' && locale == '${locale}' && labid == '${process.env.LAB_ID}']`;
