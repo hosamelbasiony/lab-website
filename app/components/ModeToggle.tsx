@@ -7,7 +7,12 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export function ModeToggle({ modes, locale }) {
+type PageProps = {
+  modes: any[];
+  locale: string;
+}
+
+export function ModeToggle({ modes, locale }: PageProps) {
   const { setTheme } = useTheme()
   
   return (
