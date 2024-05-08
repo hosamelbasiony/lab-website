@@ -6,6 +6,7 @@ import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LandingPage from "./LandingPage";
+import QuestionsSection from "../components/QuestionsSection";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -40,7 +41,8 @@ export default function LocaleLayout({
         >
           <Navbar locale={locale}  />
 
-          <LandingPage children={children} />
+          <main className="max-w-6xl mx-auto px-4 py-5">{children}</main>
+          <QuestionsSection />
           
           <Footer />
         </ThemeProvider>
