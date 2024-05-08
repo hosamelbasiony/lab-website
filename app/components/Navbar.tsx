@@ -4,7 +4,11 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { ModeToggle } from "./ModeToggle";
 
-export default function Navbar({ locale }) {
+type PageProps = {
+  locale: string;
+}
+
+export default function Navbar({ locale }: PageProps) {
   const t = useTranslations("Mode");
   let modes = {light: t("light"), dark:t("dark"), system: t("system")};
 
