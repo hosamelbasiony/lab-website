@@ -5,7 +5,6 @@ import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import LandingPage from "./LandingPage";
 import QuestionsSection from "../components/QuestionsSection";
 
 const poppins = Poppins({
