@@ -1,20 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "next-intl";
 import { ModeToggle } from "./ModeToggle";
-import { ArrowLongRightIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
-export default function Navbar() {
+export default function Navbar({ locale }) {
+  const t = useTranslations("Mode");
+  let modes = {light: t("light"), dark:t("dark"), system: t("system")};
+
   return (
     <nav className="w-full relative flex items-center justify-between max-w-6xl mx-auto px-4 py-5">
-      {/* <Link href="/" className='font-bold text-3xl'>Tiba<span className='text-primary'>Lab</span></Link> */}
-
       <Link href="/">
         <Image
           width={150}
           height={75}
-          src="https://tibalab.com/wp-content/uploads/2021/11/tibalab-1.png"
-          // src="https://s3.eu-west-1.amazonaws.com/blazma.com/white-label/cell_logo.png"
+          className="dark: block"
+          src="/images/logo-dark.png"
+          alt=""
+        />
+        <Image
+          width={150}
+          height={75}
+          className="dark: hidden"
+          src="/images/logo-light.webp"
           alt=""
         />
       </Link>
@@ -23,25 +31,27 @@ export default function Navbar() {
 
       <div className="flex flex-row items-center gap-2">
         <div className="lang">
-          <Link
-            href="/en"
-            className="lang-btn"
-          >
-            <span className="lang-text">EN</span>
-          </Link>
-          <span>/</span>
-          <Link
-            href="/ar"
-            className="lang-btn "
-          >
-            <span className="lang-text">عربي</span>
-          </Link>
+          {locale == "ar" ? (
+            <Link href="/en" className="lang-btn">
+              <span className="lang-text dark:text-gray-200">ENG</span>
+            </Link>
+          ) : (
+            ""
+          )}
+
+          {locale == "en" ? (
+            <Link href="/ar" className="lang-btn ">
+              <span className="lang-text dark:text-gray-200">عربي</span>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
 
-        <div>
+        {/* <div>
           <MagnifyingGlassIcon className="h-6 w-6 text-red-500" />
         </div>
-        {/* <div className="lang">
+        <div className="lang">
           <Link
             href="http://acl.com.sa/?lang=en&amp;lang=en"
           >
@@ -54,7 +64,7 @@ export default function Navbar() {
           </Link>
         </div> */}
 
-        {/* <ModeToggle /> */}
+        <ModeToggle modes={modes} locale={locale} />
       </div>
     </nav>
   );

@@ -4,8 +4,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
-import QuestionsSection from "../components/QuestionsSection";
 import Footer from "../components/Footer";
+import LandingPage from "./LandingPage";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,10 +38,10 @@ export default function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
+          <Navbar locale={locale}  />
 
-          <main className="max-w-6xl mx-auto px-4 py-5">{children}</main>
-          <QuestionsSection />
+          <LandingPage children={children} />
+          
           <Footer />
         </ThemeProvider>
       </body>

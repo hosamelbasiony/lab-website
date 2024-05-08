@@ -7,9 +7,9 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export function ModeToggle() {
+export function ModeToggle({ modes, locale }) {
   const { setTheme } = useTheme()
-
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -20,14 +20,14 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+        <DropdownMenuItem onClick={() => setTheme("light")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
+        {modes.light}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+        <DropdownMenuItem onClick={() => setTheme("dark")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
+        {modes.dark}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+        <DropdownMenuItem onClick={() => setTheme("system")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
+        {modes.system}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
