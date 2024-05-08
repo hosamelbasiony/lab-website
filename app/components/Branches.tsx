@@ -33,7 +33,7 @@ const getData = async (locale: string) => {
 export default async function Branches() {
   const locale = useLocale();
   const data: simpleBlogCard[] = await getData(locale);
-  // const t = useTranslations("Index");
+  // const t = useTranslations("Index"); 
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-12">
