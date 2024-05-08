@@ -41,6 +41,7 @@ export default function LocaleLayout({
           <Navbar locale={locale}  />
 
           <main className="max-w-6xl mx-auto px-4 py-5">{children}</main>
+          
           <QuestionsSection />
           
           <Footer />

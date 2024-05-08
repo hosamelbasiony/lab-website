@@ -40,9 +40,9 @@ export default async function Services() {
     <div className="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-12">
       <Link
         href={locale + "/results/patients"}
-        className="border-0 flex flex-col justify-between items-center p-4 shadow-xl bg-blue-100 rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
-        <span className="text-2xl font-bold text-gray-600">
+        <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "بوابة نتائج الأفراد" : "Individuals Results"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
@@ -53,26 +53,26 @@ export default async function Services() {
 
       <Link
         href={locale + "/results/patients"}
-        className="border-0 flex flex-col justify-between items-center p-4 shadow-xl bg-blue-100 rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
-        <span className="text-2xl font-bold text-gray-600">
+        <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "بوابة نتائج التعاقدات" : "Contracts Results"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
-          <AvatarImage src="/icons/patient.png" alt="@shadcn" />
+          <AvatarImage src="/icons/company.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </Link>
 
       <Link
         href={locale + "/results/patients"}
-        className="border-0 flex flex-col justify-between items-center p-4 shadow-xl bg-blue-100 rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
-        <span className="text-2xl font-bold text-gray-600">
+        <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "بوابة نتائج الأطباء" : "Physicians Results"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
-          <AvatarImage src="/icons/patient.png" alt="@shadcn" />
+          <AvatarImage src="/icons/doc.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </Link>
