@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { useLocale } from "next-intl";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -46,9 +47,15 @@ export default function InputForm() {
     // });
   }
 
+  const locale = useLocale();
+
   return (
     <>
-      <h1 className="text-xl lg:text-2xl text-primary text-center my-4 border-b-2 pb-4">رجاء كتابة رقم التسجيل وكود الانترنت كما هو موضح على الإيصال ثم الضغط على زر البحث.</h1>
+      <h1 className="text-xl lg:text-3xl text-primary text-center my-4 border-b-2 pb-4 mb-12 mt-8 font-semibold" style={{"lineHeight": "1.5"}}>
+        {locale == "ar"
+          ? "رجاء كتابة رقم التسجيل وكود الانترنت"
+          : "Please type in the registration number and internet code"}
+      </h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -59,9 +66,9 @@ export default function InputForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>رقم التسجيل</FormLabel>
+                <FormLabel>{locale == "ar"? "رقم التسجيل" : "Lab Id"}</FormLabel>
                 <FormControl>
-                  <Input placeholder="رقم التسجيل" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 {/* <FormDescription>رقم التسجيل</FormDescription> */}
                 <FormMessage />
@@ -73,18 +80,19 @@ export default function InputForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>الرقم السري</FormLabel>
+                <FormLabel>{locale == "ar"? "الرقم السري" : "Net code"}</FormLabel>
                 <FormControl>
-                  <Input placeholder="الرقم السري" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 {/* <FormDescription>الرقم السري</FormDescription> */}
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">عرض النتيجة</Button>
+          <Button type="submit">{locale == "ar"? "عرض النتيجة" : "Display results"}</Button>
         </form>
       </Form>
+      <div className="mb-20"></div>
     </>
   );
 }

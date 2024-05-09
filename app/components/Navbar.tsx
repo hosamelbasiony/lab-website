@@ -13,7 +13,7 @@ export default function Navbar({ locale }: PageProps) {
   let modes = { light: t("light"), dark: t("dark"), system: t("system") };
 
   return (
-    <div className="nav-container my-0 py-0">
+    <div className="nav-container my-0 mb-8 py-0">
       <nav className="w-full relative flex items-center justify-between max-w-6xl mx-auto px-4 py-5">
         <Link href="/">
           <Image

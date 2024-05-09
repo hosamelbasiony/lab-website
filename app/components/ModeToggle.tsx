@@ -1,26 +1,31 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type mode = {
   light: string;
   dark: string;
   system: string;
-}
+};
 
 type PageProps = {
   modes: mode;
   locale: string;
-}
+};
 
 export function ModeToggle({ modes, locale }: PageProps) {
-  const { setTheme } = useTheme()
-  
+  const { setTheme } = useTheme();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -30,17 +35,26 @@ export function ModeToggle({ modes, locale }: PageProps) {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
-        {modes.light}
+      <DropdownMenuContent className="z-50" align="end">
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          style={{ direction: locale == "ar" ? "rtl" : "ltr" }}
+        >
+          {modes.light}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
-        {modes.dark}
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          style={{ direction: locale == "ar" ? "rtl" : "ltr" }}
+        >
+          {modes.dark}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")} style={{direction: locale=="ar" ? "rtl" : "ltr"}}>
-        {modes.system}
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          style={{ direction: locale == "ar" ? "rtl" : "ltr" }}
+        >
+          {modes.system}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
