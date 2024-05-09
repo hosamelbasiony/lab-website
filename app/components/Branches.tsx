@@ -45,18 +45,18 @@ export default async function Branches() {
             </CardTitle>
             <CardDescription className="text-lg text-center my-2">
               <span className="flex flex-row">
-                <MapPinIcon className="h-6 w-10 text-red-500 dark:text-red-400 justify-start" />
-                <span className="text-sm text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-right">
-                  {/* Prince Muhammad Bin Abdulaziz Rd As Sulimaniyah, Riyadh */}
-                  {post.description}
+                <span className="w-full text-sm text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
+                  {/* <MapPinIcon className="h-6 w-10 text-red-500 dark:text-red-400 justify-start" /> */}
+                  <span className="line-clamp-1 whitespace-nowrap text-center"><span className="text-xl mx-2">📌</span>{post.description}</span>
                 </span>
               </span>
-              <div>
+              {/* <div>
                 <span className="text-sm text-gray-600 dark:text-gray-200 leading-6">294 KM</span>
-              </div>
+              </div> */}
               <div>
                 <Button asChild className="mt-6 dark:text-gray-50">
-                  <Link href="/">
+                  {/* <Link href={"/" + locale + "/branch/" +post.currentSlug }> */}
+                  <Link href={"/" + locale + "/branch/" + post.currentSlug }>
                     {locale=="ar"? "مزيد من المعلومات" : "Book now"} <ArrowLongRightIcon className="h-6 w-12 " />
                   </Link>
                 </Button>
