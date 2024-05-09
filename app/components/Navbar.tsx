@@ -1,58 +1,59 @@
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { ModeToggle } from "./ModeToggle";
 
 type PageProps = {
   locale: string;
-}
+};
 
 export default function Navbar({ locale }: PageProps) {
   const t = useTranslations("Mode");
-  let modes = {light: t("light"), dark:t("dark"), system: t("system")};
+  let modes = { light: t("light"), dark: t("dark"), system: t("system") };
 
   return (
-    <nav className="w-full relative flex items-center justify-between max-w-6xl mx-auto px-4 py-5">
-      <Link href="/">
-        <Image
-          width={150}
-          height={75}
-          className="dark: block"
-          src="/images/logo-dark.png"
-          alt=""
-        />
-        <Image
-          width={150}
-          height={75}
-          className="dark: hidden"
-          src="/images/logo-light.webp"
-          alt=""
-        />
-      </Link>
+    <div className="nav-container my-0 py-0">
+      <nav className="w-full relative flex items-center justify-between max-w-6xl mx-auto px-4 py-5">
+        <Link href="/">
+          <Image
+            width={150}
+            height={75}
+            className="dark: block"
+            src="/images/logo-dark.png"
+            alt=""
+          />
+          <Image
+            width={150}
+            height={75}
+            className="dark: hidden"
+            src="/images/logo-light.webp"
+            alt=""
+          />
+        </Link>
 
-      {/* <img width="164" height="50" src="https://tibalab.com/wp-content/uploads/2021/11/tibalab-1.png" alt="logo" data-lazy-src="https://tibalab.com/wp-content/uploads/2021/11/tibalab-1.png" data-ll-status="loaded" class="entered lazyloaded"></img> */}
+        {/* <img width="164" height="50" src="https://tibalab.com/wp-content/uploads/2021/11/tibalab-1.png" alt="logo" data-lazy-src="https://tibalab.com/wp-content/uploads/2021/11/tibalab-1.png" data-ll-status="loaded" class="entered lazyloaded"></img> */}
 
-      <div className="flex flex-row items-center gap-2">
-        <div className="lang">
-          {locale == "ar" ? (
-            <Link href="/en" className="lang-btn">
-              <span className="lang-text dark:text-gray-200">ENG</span>
-            </Link>
-          ) : (
-            ""
-          )}
+        <div className="flex flex-row items-center gap-2">
+          <div className="lang">
+            {locale == "ar" ? (
+              <Link href="/en" className="lang-btn">
+                <span className="lang-text dark:text-gray-200">ENG</span>
+              </Link>
+            ) : (
+              ""
+            )}
 
-          {locale == "en" ? (
-            <Link href="/ar" className="lang-btn ">
-              <span className="lang-text dark:text-gray-200">عربي</span>
-            </Link>
-          ) : (
-            ""
-          )}
-        </div>
+            {locale == "en" ? (
+              <Link href="/ar" className="lang-btn ">
+                <span className="lang-text dark:text-gray-200">عربي</span>
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
 
-        {/* <div>
+          {/* <div>
           <MagnifyingGlassIcon className="h-6 w-6 text-red-500" />
         </div>
         <div className="lang">
@@ -68,8 +69,9 @@ export default function Navbar({ locale }: PageProps) {
           </Link>
         </div> */}
 
-        <ModeToggle modes={modes} locale={locale} />
-      </div>
-    </nav>
+          <ModeToggle modes={modes} locale={locale} />
+        </div>
+      </nav>
+    </div>
   );
 }

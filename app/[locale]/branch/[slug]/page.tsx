@@ -4,7 +4,8 @@ import { client } from "@/app/lib/sanity";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/16/solid";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import Image from "next/image";
 
 const getData = async (slug: string) => {
   const query = `
@@ -21,6 +22,7 @@ interface pageParams {
 
 export default async function BranchPage({ params }: pageParams ) {
   const data: any = await getData(params.slug);
+  const locale = useLocale();
 
   return (
   <>
@@ -28,7 +30,7 @@ export default async function BranchPage({ params }: pageParams ) {
     <div>{ data.title }</div>
     <div>{ data.description }</div> */}
 
-    <div className="my-8 grid grid-cols-1 lg:grid-cols-2 mt-4 gap-10">
+    <div className="my-24 grid grid-cols-1 lg:grid-cols-2 mt-4 gap-10">
       <div className="order-2">
         <h1 className="text-4xl font-bold text-gray-700 dark:text-gray-200 mt-4 mb-6">
           {data.title}
@@ -38,12 +40,12 @@ export default async function BranchPage({ params }: pageParams ) {
         </span>
         <Button asChild className="mt-6">
           <Link href="/" className="dark:text-gray-50">
-          Back <ArrowLongLeftIcon className="h-6 w-12" />
+          {locale=="en"?"Back":"عودة"} <ArrowLongLeftIcon className="h-6 w-12" />
           </Link>
         </Button>
       </div>
       <div className="order-1 lg:order-3">
-        <img src={`/images/hero2.png`} alt="" />
+        <Image height={750} width={750} src={`/images/hero2.png`} alt="" />
       </div>
     </div>
     

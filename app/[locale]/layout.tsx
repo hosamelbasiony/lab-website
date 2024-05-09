@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script';
 import { useTranslations } from "next-intl";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -32,6 +33,7 @@ export default function LocaleLayout({
   return (
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
       <body className={poppins.className + " bg-grayss-50"}>
+        <Script src="/js/script.js"></Script>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -40,7 +42,7 @@ export default function LocaleLayout({
         >
           <Navbar locale={locale}  />
 
-          <main className="max-w-6xl mx-auto px-4 py-5">{children}</main>
+          <main className="max-w-6xl mx-auto px-4 py-5 mt-16">{children}</main>
           
           <QuestionsSection />
           
