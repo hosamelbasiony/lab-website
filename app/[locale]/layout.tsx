@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from 'next/script';
+import Script from "next/script";
 import { useTranslations } from "next-intl";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -7,6 +7,8 @@ import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import QuestionsSection from "../components/QuestionsSection";
+import VideoPage from "../components/VideoPage";
+import LazyYoutube from "../components/YoutubeVideo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -40,12 +42,19 @@ export default function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar locale={locale}  />
+          <Navbar locale={locale} />
 
           <main className="max-w-6xl mx-auto px-4 py-5 mt-20">{children}</main>
-          
+
+          {/* <VideoPage /> */}
+
+          {/* <div className="p-4 mx-auto text-center border flex flex-row justify-around">
+            <LazyYoutube />
+          </div> */}
+          <LazyYoutube />
+
           <QuestionsSection />
-          
+
           <Footer />
         </ThemeProvider>
       </body>

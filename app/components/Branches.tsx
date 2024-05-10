@@ -10,8 +10,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import BranchesCarosel from "./BranchesCarosel";
 
 export const revalidate = 60; // revalidate at most every minute
 
@@ -33,39 +42,7 @@ const getData = async (locale: string) => {
 export default async function Branches() {
   const locale = useLocale();
   const data: simpleBlogCard[] = await getData(locale);
-  // const t = useTranslations("Index"); 
+  // const t = useTranslations("Index");
 
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-12">
-      {data.map((post, idx) => (
-        <Card className="shadow-xl rounded-lg border-0 bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg" key={idx}>
-          <CardHeader>
-            <CardTitle className="text-center text-xl text-gray-600 dark:text-gray-200 m-2">
-              {post.title}
-            </CardTitle>
-            <CardDescription className="text-lg text-center my-2">
-              <span className="flex flex-row">
-                <span className="w-full text-sm text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
-                  {/* <MapPinIcon className="h-6 w-10 text-red-500 dark:text-red-400 justify-start" /> */}
-                  <span className="line-clamp-1 whitespace-nowrap text-center"><span className="text-xl mx-2">📌</span>{post.description}</span>
-                </span>
-              </span>
-              {/* <div>
-                <span className="text-sm text-gray-600 dark:text-gray-200 leading-6">294 KM</span>
-              </div> */}
-              <div>
-                <Button asChild className="mt-6 dark:text-gray-50">
-                  {/* <Link href={"/" + locale + "/branch/" +post.currentSlug }> */}
-                  <Link href={"/" + locale + "/branch/" + post.currentSlug }>
-                    {locale=="ar"? "مزيد من المعلومات" : "Book now"} <ArrowLongRightIcon className="h-6 w-12 " />
-                  </Link>
-                </Button>
-              </div>
-            </CardDescription>
-          </CardHeader>
-          <CardContent></CardContent>
-        </Card>
-      ))}
-    </div>
-  );
+  return <BranchesCarosel branches={data} />;
 }
