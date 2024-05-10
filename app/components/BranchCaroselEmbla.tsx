@@ -41,7 +41,7 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
           {branches.map((post, index) => (
             <div className="embla__slide flex items-center justify-center" key={index}>
               <Card
-                className="border-0 bg-blue-100 dark:bg-blue-900 m-0 w-full rounded-none"
+                className="border-0 bg-blue-100s dark:bg-blue-900s m-0 w-full rounded-none"
                 key={index}
               >
                 <CardHeader>
@@ -50,11 +50,9 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
                   </CardTitle>
                   <CardDescription className="text-lg text-center my-2">
                     <span className="flex flex-row">
-                      <span className="w-full text-sm text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
-                        {/* <MapPinIcon className="h-6 w-10 text-red-500 dark:text-red-400 justify-start" /> */}
-                        <span className="line-clamp-1 whitespace-nowrap text-center w-full">
-                          <span className="text-xl mx-2">📌</span>
-                          {post.description}
+                      <span className="w-full text-sm lg:text-md text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
+                        <span className="line-clamp-10 whitespace-nowrap0 text-center w-full whitespace-pre-line">
+                          📌 {post.description}
                         </span>
                       </span>
                     </span>
