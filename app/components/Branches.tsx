@@ -21,6 +21,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import BranchesCarosel from "./BranchesCarosel";
+import BranchCaroselEmbla from "./BranchCaroselEmbla";
 
 export const revalidate = 60; // revalidate at most every minute
 
@@ -44,5 +45,11 @@ export default async function Branches() {
   const data: simpleBlogCard[] = await getData(locale);
   // const t = useTranslations("Index");
 
-  return <BranchesCarosel branches={data} locale={locale} />;
+  return (
+    <>
+      <BranchCaroselEmbla branches={data} locale={locale} />
+      <br></br>
+      {/* <BranchesCarosel branches={data} locale={locale} /> */}
+    </>
+  );
 }
