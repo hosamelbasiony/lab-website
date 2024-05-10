@@ -26,7 +26,7 @@ export const revalidate = 60; // revalidate at most every minute
 
 const getData = async (locale: string) => {
   const query = `
-  *[_type == 'branch' && locale == '${locale}' && labid == '${process.env.LAB_ID}' ]{
+  *[_type == 'branch' && locale == '${locale}' && labid == '${process.env.LAB_ID}' ] | order(order asc) {
     title,
       "currentSlug": slug.current,
         description,
@@ -44,5 +44,5 @@ export default async function Branches() {
   const data: simpleBlogCard[] = await getData(locale);
   // const t = useTranslations("Index");
 
-  return <BranchesCarosel branches={data} />;
+  return <BranchesCarosel branches={data} locale={locale} />;
 }

@@ -19,11 +19,15 @@ export default function LazyYoutube() {
   };
 
   return (
-    <YouTube
-      className="w-full mx-auto my-12"
-      videoId="oZBHHXDUSI8"
-      opts={opts}
-      onReady={onPlayerReady}
-    />
+    <div className="p-4 my-0 mx-auto text-center0 border flex flex-row justify-around">
+      <div>
+        <YouTube
+          className="w-full mx-auto mb-8 mt-0"
+          videoId="oZBHHXDUSI8"
+          opts={opts}
+          onReady={onPlayerReady}
+        />
+      </div>
+    </div>
   );
 }

@@ -22,14 +22,15 @@ import Link from "next/link";
 
 type PageProps = {
   branches: any[];
+  locale: string;
 };
 
-export default function BranchesCarosel({branches}: PageProps) {
+export default function BranchesCarosel({branches, locale}: PageProps) {
   return (
 
       <Carousel
-        className="w-full w-6xl mx-auto pb-4 py-5 pt-0"
-        style={{ direction: "ltr", width: "750px" }}
+        className="w-full w-6xl mx-auto py-0 pt-12"
+        style={{ direction: "ltr" }}
       >
         <CarouselContent>
           {/* {Array.from({ length: 5 }).map((_, index) => (
@@ -66,7 +67,8 @@ export default function BranchesCarosel({branches}: PageProps) {
                     </span>
                     <div>
                       <Button asChild className="mt-6 dark:text-gray-50">
-                        <Link href="/">
+                        {/* <Link href="/"> */}
+                        <Link href={"/" + locale + "/branch/" + post.currentSlug}>
                           مزيد من المعلومات
                           <ArrowLongRightIcon className="h-6 w-12 " />
                         </Link>

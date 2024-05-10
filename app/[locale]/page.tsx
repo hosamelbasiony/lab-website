@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Branches from "../components/Branches0";
+import Branches from "../components/Branches";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
 

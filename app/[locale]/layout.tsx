@@ -44,7 +44,7 @@ export default function LocaleLayout({
         >
           <Navbar locale={locale} />
 
-          <main className="max-w-6xl mx-auto px-4 py-5 mt-20">{children}</main>
+          <main className="max-w-6xl mx-auto px-4 py-5 mt-20 mb-0">{children}</main>
 
           {/* <VideoPage /> */}
 
