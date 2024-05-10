@@ -44,16 +44,11 @@ export default function LocaleLayout({
         >
           <Navbar locale={locale} />
 
-          <main className="max-w-6xl mx-auto px-4 py-5 mt-20 mb-0">{children}</main>
-
-          {/* <VideoPage /> */}
-
-          {/* <div className="p-4 mx-auto text-center border flex flex-row justify-around">
+          <main className="max-w-6xl mx-auto px-4 py-5 mt-20 mb-0">
+            {children}
             <LazyYoutube />
-          </div> */}
-          <LazyYoutube />
-
-          <QuestionsSection />
+            <QuestionsSection />
+          </main>
 
           <Footer />
         </ThemeProvider>
