@@ -29,7 +29,8 @@ export default function BranchesCarosel({branches, locale}: PageProps) {
   return (
 
       <Carousel
-        className="w-full w-6xl mx-auto py-0 pt-12"
+        className="w-4/5 lg:w-6xl mx-auto py-0 pt-12"
+        orientation="horizontal"
         style={{ direction: "ltr" }}
       >
         <CarouselContent>
@@ -48,7 +49,7 @@ export default function BranchesCarosel({branches, locale}: PageProps) {
           {branches.map((post, index) => (
             <CarouselItem key={index}>
               <Card
-                className="shadow-xl rounded-lg border-0 bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg m-8"
+                className="shadow-xl rounded-lg border-0 bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg m-0"
                 key={index}
               >
                 <CardHeader>
