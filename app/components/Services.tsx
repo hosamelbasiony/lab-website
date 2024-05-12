@@ -47,7 +47,7 @@ export default async function Services() {
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/patient.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>TQM</AvatarFallback>
         </Avatar>
       </Link>
 
@@ -60,7 +60,7 @@ export default async function Services() {
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/company.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>TQM</AvatarFallback>
         </Avatar>
       </Link>
 
@@ -73,7 +73,7 @@ export default async function Services() {
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/doc.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>TQM</AvatarFallback>
         </Avatar>
       </Link>
     </div>
