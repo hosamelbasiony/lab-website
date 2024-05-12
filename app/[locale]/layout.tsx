@@ -7,8 +7,6 @@ import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import QuestionsSection from "../components/QuestionsSection";
-import VideoPage from "../components/VideoPage";
-import LazyYoutube from "../components/YoutubeVideo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -47,9 +45,6 @@ export default function LocaleLayout({
           <main className="max-w-6xl mx-auto px-4 py-5 mt-20 mb-0">
             {children}
           </main>
-
-          {/* <LazyYoutube /> */}
-          <QuestionsSection />
 
           <Footer />
         </ThemeProvider>

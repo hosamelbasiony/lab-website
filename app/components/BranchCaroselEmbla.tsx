@@ -87,13 +87,13 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
 
       <div className="mt-3 flex justify-between">
         <button
-          className="w-20 text-primary px-2 py-1 text-sm dark:text-white"
+          className="w-20 text-primary px-2 py-1 text-md dark:text-white"
           onClick={scrollPrev}
         >
           {locale=="en" ? "Prev" : "السابق"}
         </button>
         <button
-          className="w-20 text-primary px-2 py-1 text-sm dark:text-white"
+          className="w-20 text-primary px-2 py-1 text-md dark:text-white"
           onClick={scrollNext}
         >
           {locale=="en" ? "Next" : "التالي"}
