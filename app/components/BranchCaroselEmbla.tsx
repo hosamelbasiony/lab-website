@@ -33,7 +33,7 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
   return (
     // <div className='embla mx-auto mt-12 max-w-lg'>
     <div
-      className="embla w-full lg:w-6xl mx-auto py-0 lg:pt-12 border dark:border-gray-400 
+      className="embla w-full lg:w-6xl mx-auto py-0 lg:pt-12 dark:border-gray-400 
       border-gray-100 mt-8 rounded-xl pb-4 px-0 lg:px-8 bg-blue-100 dark:bg-blue-900"
       style={{ direction: "ltr" }}
     >

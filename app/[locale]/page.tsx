@@ -19,12 +19,12 @@ export default function Home() {
           {t("ourBranches")}
         </h1>
 
-        <div className="p-4 pt-0 mt-0 mx-auto text-center0 border-0 flex flex-row justify-around">
+        {/* <div className="p-4 pt-0 mt-0 mx-auto text-center0 border-0 flex flex-row justify-around"> */}
           <Branches />
           {/* <div className="w-full w-6xl mx-auto pb-4 py-5">
         <h1>some text</h1>
       </div> */}
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="mt-24 mb-24">
