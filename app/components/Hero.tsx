@@ -26,9 +26,9 @@ export default async function Hero() {
   const labData = await getData(locale);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 mt-4 mb-2 gap-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 mt-4 mb-2 pb-8 gap-10 border-b-2 border-gray-100dark:border-gray-400">
       <div className="order-2">
-        <h1 className="text-4xl font-bold text-gray-700 dark:text-gray-200 mt-4 mb-6">
+        <h1 className="text-3xl font-bold text-gray-700 dark:text-gray-200 mt-4 mb-6">
           {labData.title}
         </h1>
         <span className="line-clamp-none leading-7 text-gray-600 dark:text-gray-100">
@@ -56,14 +56,14 @@ const ArabicInfo = () => {
   return (
     <>
       <h1 className="text-md font-bold text-primary">الرؤية</h1>
-      <h2 className="text-gray-800">
+      <h2 className="text-gray-800 dark:text-gray-200">
         تلتزم خدمة مختبرات طيبة بكونها المزود الرائد لخدمات المختبرات الطبية في
         مجتمعنا. نحن نركز على احتياجات عملائنا، ونقدم أحدث الاختبارات والخدمات
         الاستشارية المعتمدة بالكامل، والتطبيق المبتكر للعلوم والتكنولوجيا لتشخيص
         الأمراض البشرية وإدارتها.
       </h2>
       <h1 className="text-lg font-bold text-primary">مهمتنا</h1>
-      <h2 className="text-gray-800">
+      <h2 className="text-gray-800 dark:text-gray-200">
         تتمثل مهمة مختبر طيبة في تقديم خدمات معملية عالية الجودة وفعالة من حيث
         التكلفة بطريقة تدعم مهمة رعاية المرضى لهيئة تسجيل الاعتماد الصحي
         (GAHAR). نحن نهدف إلى إعطاء الطبيب أفضل نصيحة ممكنة حول ما يجب فعله مع
@@ -77,14 +77,14 @@ const EnglishInfo = () => {
   return (
     <>
       <h2 className="text-gray-800">
-        <span className="text-md font-bold text-primary">Vision: </span>Tiba Laboratory Service commits to being the leading provider of medical
+        <span className="text-md font-bold text-primary dark:text-gray-200">Vision: </span>Tiba Laboratory Service commits to being the leading provider of medical
         laboratory services in our community. We focus on our customer’s needs,
         provide state-of-the-art fully accredited professional testing and
         consultative services,  the innovative application of science and
         technology to the diagnosis and management of human disease.
       </h2>
       <h2 className="text-gray-800">
-      <span className="text-md font-bold text-primary">Our Mission: </span>The mission of Tiba laboratory is to provide high- quality,
+      <span className="text-md font-bold text-primary dark:text-gray-200">Our Mission: </span>The mission of Tiba laboratory is to provide high- quality,
         cost-effective lab services in a manner that supports the patient care
         mission of General Authority for Health Accreditation Registration
         (GAHAR). We aim giving the clinician the best possible advice about what

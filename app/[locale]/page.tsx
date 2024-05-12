@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
 
       <div className="mt-12 pt-8 mb-24 border-t-1 border-gray-100">
-        <h1 className="text-center text-xl text-red-600 mb-2">
+        <h1 className="text-center text-xl text-red-600 mb-8">
           {t("chooseLocation")}
         </h1>
         <h1 className="text-center text-4xl font-bold text-gray-600 dark:text-gray-200">
