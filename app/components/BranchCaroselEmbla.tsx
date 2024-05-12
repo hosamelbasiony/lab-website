@@ -33,7 +33,7 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
   return (
     // <div className='embla mx-auto mt-12 max-w-lg'>
     <div
-      className="embla w-full lg:w-6xl mx-auto py-0 pt-12"
+      className="embla w-full lg:w-6xl mx-auto py-0 pt-12 border dark:border-gray-400 border-gray-100 mt-8 rounded-xl pb-4 px-8 bg-blue-100 dark:bg-blue-900"
       style={{ direction: "ltr" }}
     >
       <div className="embla__viewport h-auto border-0" ref={emblaRef}>
@@ -45,19 +45,19 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
                 key={index}
               >
                 <CardHeader>
-                  <CardTitle className="text-center text-xl text-gray-600 dark:text-gray-200 m-2">
+                  <CardTitle className="text-center text-3xl text-gray-600 dark:text-gray-200 m-2">
                     {post.title}
                   </CardTitle>
                   <CardDescription className="text-lg text-center my-2">
                     <span className="flex flex-row">
-                      <span className="w-full text-sm lg:text-md text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
+                      <span className="w-full lg:text-lg text-gray-600 dark:text-gray-200 leading-6 line-clamp-1 text-center flex flex-row space-around">
                         <span className="line-clamp-10 whitespace-nowrap0 text-center w-full whitespace-pre-line">
                           📌 {post.description}
                         </span>
                       </span>
                     </span>
                     <div>
-                      <Button asChild className="mt-6 dark:text-gray-50">
+                      <Button asChild className="mt-12 dark:text-gray-50 text-lg">
                         {/* <Link href="/"> */}
                         <Link
                           href={"/" + locale + "/branch/" + post.currentSlug}
