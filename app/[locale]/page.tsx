@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-36 mb-24">
+      <div className="mt-24 mb-24">
         <Services />
       </div>
 
