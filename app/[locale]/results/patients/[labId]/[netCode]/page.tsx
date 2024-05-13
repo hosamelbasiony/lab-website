@@ -7,6 +7,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+interface reg {
+  patient: any;
+  lab_id: string;
+  created_at: string;
+  panels: any[]
+}
+
 function getResults(labId: string, onlineKey: string) {
   // let labId = "240301139";
   // let onlineKey = "95180";
@@ -35,9 +42,7 @@ interface pageParams {
 export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
   const initialized = React.useRef(false);
-  const [data, setData] = React.useState({
-    patient: null
-  });
+  const [data, setData] = React.useState<reg>({});
 
   const pathname = usePathname();
 
