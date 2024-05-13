@@ -1,8 +1,10 @@
 "use client";
 
+import axios from 'axios';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useRouter, usePathname } from 'next/navigation'
 
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +30,11 @@ const FormSchema = z.object({
 });
 
 export default function InputForm() {
+
+  const locale = useLocale();
+  const router = useRouter()
+  const pathname = usePathname();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -37,17 +44,15 @@ export default function InputForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    // toast({
-    //   title: "You submitted the following values:",
-    //   description: (
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-    //     </pre>
-    //   ),
-    // });
+
+    let labId = "240301139";
+    let onlineKey = "95180";
+
+    router.push(`${pathname}/${labId}/${onlineKey}`);
+    
   }
 
-  const locale = useLocale();
+  //  let url = `${environment.apiUrl}api3/online-results/visit/${this.visit.lab_id}/${this.visit.online_key}`;
 
   return (
     <>
