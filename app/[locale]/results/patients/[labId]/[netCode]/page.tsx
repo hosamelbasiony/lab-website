@@ -35,7 +35,9 @@ interface pageParams {
 export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
   const initialized = React.useRef(false);
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState({
+    patient: null
+  });
 
   const pathname = usePathname();
 
@@ -55,22 +57,22 @@ export default function PatientResultsPage({ params }: pageParams) {
 
   return (
     <div className="rounded-md border-2 border-gray-100 dark:border-gray-700 p-8 my-8">
-      {data ? (
+      {data.patient != null ? (
         <div>
           <h1 className="my-4 text-3xl text-center font-bold text-gray-600 dark:text-gray-200">
             {locale == "ar" ? "تفاصيل الزيارة" : "Visit Details"}
           </h1>
           <h1 className="m-2">
-            {data?.patient.title} - {data?.patient.name}
+            {data.patient.title} - {data.patient.name}
           </h1>
           <h1>
             <span className="m-2">
               {locale == "ar" ? "رقم الزيارة" : "Visit Id"}
             </span>
-            <span className="text-primary">{data?.lab_id}</span>
+            <span className="text-primary">{data.lab_id}</span>
           </h1>
           <h1 className="text-gray-500 mt-2 mb-4 mx-2 dark:text-gray-300">
-            {data?.created_at.substring(0, 10)}
+            {data.created_at.substring(0, 10)}
           </h1>
           <h1 className="mb-2 border-b-2 mx-2">
             {locale == "ar" ? "نتائج التحاليل" : "Test results"}
