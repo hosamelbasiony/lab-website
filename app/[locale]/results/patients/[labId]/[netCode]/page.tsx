@@ -42,7 +42,12 @@ interface pageParams {
 export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
   const initialized = React.useRef(false);
-  const [data, setData] = React.useState<reg>({});
+  const [data, setData] = React.useState<reg>({
+    patient: null,
+    lab_id: "",
+    created_at: "",
+    panels:[]
+  });
 
   const pathname = usePathname();
 
