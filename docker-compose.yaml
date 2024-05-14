@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        # ENV_VARIABLE: ${ENV_VARIABLE}
+        # NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+        LAB_ID: tibalab
+        NEXT_PUBLIC_LAB_ID: tibalab
+        NEXT_PUBLIC_LAB_API_URL: https://tibalab.yaseer-lis.net/
+        NEXT_PUBLIC_LAB_WHATSAPP_URL: https://tibalab-whatsapp.tarqim.info
+
+    restart: always
+    ports:
+      - 3001:3001
+    networks:
+      - my_network
+
+  # Add more containers below (nginx, postgres, etc.)
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  my_network:
+    external: true
