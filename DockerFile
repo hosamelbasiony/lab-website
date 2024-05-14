@@ -71,3 +71,4 @@ CMD HOSTNAME="0.0.0.0" node server.js
 # docker build -t nextjs-docker .
 # docker run -p 3001:3001 nextjs-docker
 # docker images
+# docker network create my_network

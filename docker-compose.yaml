@@ -27,3 +27,6 @@ services:
 networks:
   my_network:
     external: true
+
+
+# docker network create my_network
