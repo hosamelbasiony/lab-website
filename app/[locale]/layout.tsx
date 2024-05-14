@@ -32,6 +32,7 @@ export default function LocaleLayout({
 
   return (
     <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
+      <link rel="shortcut icon" href="/images/favicon.ico" />
       <body className={poppins.className + " bg-grayss-50"}>
         <Script src="/js/script.js"></Script>
         <ThemeProvider
