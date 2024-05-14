@@ -63,7 +63,7 @@ export default function BranchCaroselEmbla({ branches, locale }: PageProps) {
                         <Link
                           href={"/" + locale + "/branch/" + post.currentSlug}
                         >
-                          مزيد من المعلومات
+                          {locale=="ar"? "مزيد من المعلومات" : "Read More"}
                           <ArrowLongRightIcon className="h-6 w-12 " />
                         </Link>
                       </Button>
