@@ -21,11 +21,13 @@ import { toast } from "@/components/ui/use-toast";
 import { useLocale } from "next-intl";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  username: z.string().min(3, {
+    // message: "Username must be at least 2 characters.",
+    message: "",
   }),
-  password: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  password: z.string().min(4, {
+    // message: "Username must be at least 2 characters.",
+    message: "",
   }),
 });
 
@@ -45,8 +47,14 @@ export default function InputForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
 
-    let labId = "240301139";
-    let onlineKey = "95180";
+    // alert(JSON.stringify(data));
+    // {"username":"1111","password":"2222"}
+
+    let labId = data.username;
+    let onlineKey = data.password;
+    
+    // let labId = "240301139";
+    // let onlineKey = "95180";
 
     router.push(`${pathname}/${labId}/${onlineKey}`);
     
@@ -94,7 +102,7 @@ export default function InputForm() {
               </FormItem>
             )}
           />
-          <Button type="submit">{locale == "ar"? "عرض النتيجة" : "Display results"}</Button>
+          <Button className='dark:text-white' type="submit">{locale == "ar"? "عرض النتيجة" : "Display results"}</Button>
         </form>
       </Form>
       <div className="mb-20"></div>

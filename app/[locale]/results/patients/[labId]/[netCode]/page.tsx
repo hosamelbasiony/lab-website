@@ -12,6 +12,7 @@ interface reg {
   lab_id: string;
   created_at: string;
   panels: any[];
+  debt: number;
 }
 
 function getResults(labId: string, onlineKey: string) {
@@ -42,18 +43,22 @@ interface pageParams {
 export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
   const initialized = React.useRef(false);
+
+  const [loadingMessage, setLoadingMessage] = React.useState<string>("...");
+  const [someReady, setSomeReady] = React.useState<boolean>(true);
+
   const [data, setData] = React.useState<reg>({
     patient: null,
     lab_id: "",
     created_at: "",
     panels: [],
+    debt: 1,
   });
 
   const hndlReportClick = () => {
     const url = `${process.env.NEXT_PUBLIC_LAB_WHATSAPP_URL}/get-report/${params.labId}/${params.netCode}`;
 
     axios.get(url).then((ret) => {
-     
       const byteCharacters = atob(ret.data.b64);
       const byteNumbers = new Array(byteCharacters.length);
       for (let i = 0; i < byteCharacters.length; i++) {
@@ -75,7 +80,21 @@ export default function PatientResultsPage({ params }: pageParams) {
           `${process.env.NEXT_PUBLIC_LAB_API_URL}api3/online-results/visit/${params.labId}/${params.netCode}`
         )
         .then((ret) => {
-          setData(ret.data);
+          if (ret.data != null) {
+            setData({
+              ...ret.data,
+              debt: parseFloat(ret.data.debt),
+            });
+
+            let found = ret.data.panels.find( (x:any) => x.verified == 1);            
+            if( found ) setSomeReady(true);
+          } else {
+            setLoadingMessage(
+              locale == "ar"
+                ? "لم يتم العثور على هذا السجل"
+                : "Registration Not Found"
+            );
+          }
         });
     }
 
@@ -123,12 +142,20 @@ export default function PatientResultsPage({ params }: pageParams) {
             </h1>
           ))}
 
-          <Button
-            onClick={() => hndlReportClick()}
-            className="mt-8 mx-4 dark:text-white"
-          >
-            {locale == "en" ? "Display Results" : "عرض النتائج"}
-          </Button>
+          {data.debt <= 0 ? (
+            <Button
+              onClick={() => hndlReportClick()}
+              className="mt-8 mx-4 dark:text-white"
+            >
+              {locale == "en" ? "Display Results" : "عرض النتائج"}
+            </Button>
+          ) : (
+            <h1 className="my-4 text-red-600 dark:text-red-400">
+              {someReady? (locale == "en"
+                ? "Please contact us to get the results"
+                : "رجاء التواصل معنا للحصول على النتائج") : ""}
+            </h1>
+          )}
 
           <Button asChild className="mt-8" variant="outline">
             <Link
@@ -144,7 +171,7 @@ export default function PatientResultsPage({ params }: pageParams) {
           </Button>
         </div>
       ) : (
-        "..."
+        <h1 className="text-center">{loadingMessage}</h1>
       )}
     </div>
   );
