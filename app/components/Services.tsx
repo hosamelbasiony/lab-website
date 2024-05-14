@@ -40,7 +40,7 @@ export default async function Services() {
     <div className="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-12">
       <Link
         href={locale + "/results/patients"}
-        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bgs-blue-100 dark:bgs-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "نتائج الأفراد" : "Individuals Results"}
@@ -53,7 +53,7 @@ export default async function Services() {
 
       <Link
         href="https://tibalab.yaseer-lis.net/lab-portal"
-        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bgs-blue-100 dark:bgs-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "بوابة نتائج التعاقدات" : "Contracts Result Portal"}
@@ -66,7 +66,7 @@ export default async function Services() {
 
       <Link
         href="https://tibalab.yaseer-lis.net/doctors/#/login"
-        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
+        className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bgs-blue-100 dark:bgs-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
           {locale == "ar" ? "بوابة نتائج الأطباء" : "Physicians Result Portal"}
