@@ -10,9 +10,9 @@ export default function Testimonials() {
           alt="Tarqeem"
           className="dark:bg-gray-300 rounded-lg mx-auto"
           src={"/images/accreds/" + (idx+1) + ".png"}
-          style={{ maxWidth: "200px", maxHeight: "200px" }}
-          width={200}
-          height={200}
+          style={{ maxWidth: "250px", maxHeight: "250px" }}
+          width={250}
+          height={250}
         />
       ))}
     </div>
