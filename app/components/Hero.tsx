@@ -36,7 +36,7 @@ export default async function Hero() {
           {locale == "en" ? <EnglishInfo /> : <ArabicInfo />}
         </span>
         <Button asChild className="mt-6">
-          <Link href="/" className="dark:text-gray-50">
+          <Link href="https://www.facebook.com/TibaLab19236/" className="dark:text-gray-50">
             {t("readMore")} <ArrowLongRightIcon className="h-6 w-12" />
           </Link>
         </Button>

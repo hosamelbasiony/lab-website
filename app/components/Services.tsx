@@ -43,7 +43,7 @@ export default async function Services() {
         className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
-          {locale == "ar" ? "بوابة نتائج الأفراد" : "Individuals Results"}
+          {locale == "ar" ? "نتائج الأفراد" : "Individuals Results"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/patient.png" alt="@shadcn" />
@@ -52,11 +52,11 @@ export default async function Services() {
       </Link>
 
       <Link
-        href={locale + "/results/patients"}
+        href="https://tibalab.yaseer-lis.net/lab-portal"
         className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
-          {locale == "ar" ? "بوابة نتائج التعاقدات" : "Contracts Results"}
+          {locale == "ar" ? "بوابة نتائج التعاقدات" : "Contracts Result Portal"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/company.png" alt="@shadcn" />
@@ -65,11 +65,11 @@ export default async function Services() {
       </Link>
 
       <Link
-        href={locale + "/results/patients"}
+        href="https://tibalab.yaseer-lis.net/doctors/#/login"
         className="border-0 flex flex-col justify-between items-center p-4 pt-6 shadow-xl bg-blue-100 dark:bg-blue-900 dark:shadow-blue-600 dark:shadow-lg rounded-lg"
       >
         <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
-          {locale == "ar" ? "بوابة نتائج الأطباء" : "Physicians Results"}
+          {locale == "ar" ? "بوابة نتائج الأطباء" : "Physicians Result Portal"}
         </span>
         <Avatar className="mt-4" style={{ height: "7.5rem", width: "7.5rem" }}>
           <AvatarImage src="/icons/doc.png" alt="@shadcn" />

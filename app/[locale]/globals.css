@@ -30,6 +30,7 @@
       --ring: 221.2 83.2% 53.3%;
       --radius: 0.5rem;
       --card-bg: rgb(219 234 254);
+      --ribbon-bg: #e1e1e14d;
     }
 
     :root-red {
@@ -99,6 +100,7 @@
       --border: 217.2 32.6% 17.5%;
       --input: 217.2 32.6% 17.5%;
       --ring: 224.3 76.3% 48%;
+      --ribbon-bg: #e1e1e117;
     }
   }
   

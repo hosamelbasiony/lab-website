@@ -11,7 +11,7 @@ interface reg {
   patient: any;
   lab_id: string;
   created_at: string;
-  panels: any[]
+  panels: any[];
 }
 
 function getResults(labId: string, onlineKey: string) {
@@ -46,8 +46,25 @@ export default function PatientResultsPage({ params }: pageParams) {
     patient: null,
     lab_id: "",
     created_at: "",
-    panels:[]
+    panels: [],
   });
+
+  const hndlReportClick = () => {
+    const url = `${process.env.NEXT_PUBLIC_LAB_WHATSAPP_URL}/get-report/${params.labId}/${params.netCode}`;
+
+    axios.get(url).then((ret) => {
+     
+      const byteCharacters = atob(ret.data.b64);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const file = new Blob([byteArray], { type: "application/pdf;base64" });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    });
+  };
 
   const pathname = usePathname();
 
@@ -66,7 +83,7 @@ export default function PatientResultsPage({ params }: pageParams) {
   }, []);
 
   return (
-    <div className="rounded-md border-2 border-gray-100 dark:border-gray-700 p-8 my-8">
+    <div className="rounded-md border-2 border-gray-100 dark:border-gray-800 p-8 my-8">
       {data.patient != null ? (
         <div>
           <h1 className="my-4 text-3xl text-center font-bold text-gray-600 dark:text-gray-200">
@@ -84,7 +101,7 @@ export default function PatientResultsPage({ params }: pageParams) {
           <h1 className="text-gray-500 mt-2 mb-4 mx-2 dark:text-gray-300">
             {data.created_at.substring(0, 10)}
           </h1>
-          <h1 className="mb-2 border-b-2 mx-2">
+          <h1 className="mb-2 border-b-2 mx-2 pb-2">
             {locale == "ar" ? "نتائج التحاليل" : "Test results"}
           </h1>
           {data.panels.map((panel, index) => (
@@ -106,7 +123,10 @@ export default function PatientResultsPage({ params }: pageParams) {
             </h1>
           ))}
 
-          <Button className="mt-8 mx-4">
+          <Button
+            onClick={() => hndlReportClick()}
+            className="mt-8 mx-4 dark:text-white"
+          >
             {locale == "en" ? "Display Results" : "عرض النتائج"}
           </Button>
 

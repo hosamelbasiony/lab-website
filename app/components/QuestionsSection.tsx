@@ -13,7 +13,7 @@ export default function QuestionsSection() {
 
             <p className="sec-desc">{t("questionsMore")}</p>
           </div>
-          <a href="/" className="border rounded-xl h-10 py-2 px-4 mt-8 lg:mt-0 dark:border-white">
+          <a href="https://www.facebook.com/TibaLab19236/" className="border rounded-xl h-10 py-2 px-4 mt-8 lg:mt-0 dark:border-white">
             {t("contactUs")} <span className="ml-2">⟶</span>
           </a>
         </div>

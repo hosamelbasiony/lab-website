@@ -3,6 +3,8 @@ import Branches from "../components/Branches";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
 import QuestionsSection from "../components/QuestionsSection";
+import Accreditation from "../components/Accreditation";
+import Testimonials from "../components/Testimonials";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -10,6 +12,10 @@ export default function Home() {
   return (
     <div className="w-full">
       <Hero />
+
+      <Accreditation />
+      
+      <Testimonials />
 
       <div className="mt-12 pt-8 mb-24 border-t-1 border-gray-100">
         <h1 className="text-center text-xl text-red-600 mb-8 font-bold">

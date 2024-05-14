@@ -34,17 +34,7 @@ export default function BranchesCarosel({branches, locale}: PageProps) {
         style={{ direction: "ltr" }}
       >
         <CarouselContent>
-          {/* {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} >
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-6xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))} */}
+        
 
           {branches.map((post, index) => (
             <CarouselItem key={index}>
