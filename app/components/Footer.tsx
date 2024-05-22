@@ -108,7 +108,7 @@ export default async function Footer() {
             <ul className="text-sm text-gray-600 dark:text-gray-50">
               <li>
                 <a
-                  href="tel:920013146"
+                  href={`tel:${labData.phone}`}
                   className="flex flex-row my-4"
                   dir="ltr"
                 >
@@ -118,7 +118,7 @@ export default async function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@acl.com.sa"
+                  href={"mailto:" + labData.email}
                   className="flex flex-row"
                   dir="ltr"
                 >

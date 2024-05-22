@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+// import { useState, useEffect } from "react";
+// import io from "socket.io-client";
+// import { io } from "socket.io-client";
 import axios from "axios";
 import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -15,30 +18,15 @@ interface reg {
   debt: number;
 }
 
-function getResults(labId: string, onlineKey: string) {
-  // let labId = "240301139";
-  // let onlineKey = "95180";
-
-  // https://pcr.tibalab.com/reg/240301139/95180
-
-  return axios.get(
-    `${process.env.NEXT_PUBLIC_LAB_API_URL}api3/online-results/visit/${labId}/${onlineKey}`
-  );
-  //.then( (ret: any) => {});
-
-  // toast({
-  //   title: "You submitted the following values:",
-  //   description: (
-  //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-  //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-  //     </pre>
-  //   ),
-  // });
-}
-
 interface pageParams {
   params: any;
 }
+
+// export const pdfSocket = io("http://127.0.0.1:5000");
+
+// pdfSocket.on("connection", () => {
+//   alert("connection");
+// });
 
 export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
@@ -46,6 +34,24 @@ export default function PatientResultsPage({ params }: pageParams) {
 
   const [loadingMessage, setLoadingMessage] = React.useState<string>("...");
   const [someReady, setSomeReady] = React.useState<boolean>(true);
+
+  // const [socket, setSocket] = useState<any>({});
+
+  // useEffect(() => {
+  //   const pdfSocket = io("http://127.0.0.1:5000");
+
+  //   setSocket(pdfSocket);
+
+  //   // Listen for incoming messages
+  //   socket.on("message", (message:any) => {
+  //     console.log(message);
+  //   });
+
+  //   // Clean up the socket connection on unmount
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, [socket]);
 
   const [data, setData] = React.useState<reg>({
     patient: null,
@@ -55,7 +61,27 @@ export default function PatientResultsPage({ params }: pageParams) {
     debt: 1,
   });
 
-  const hndlReportClick = () => {
+  const hndlReportClick = (data: reg) => {
+    // let posted = {
+    //   labid: params.labId,
+    //   onlinekey: params.netCode,
+    //   baseURL: process.env.NEXT_PUBLIC_LAB_API_URL,
+    //   labname: "tibalab0",
+    // };
+
+    // const url = `http://127.0.0.1:5000/get-report/${params.labId}/${params.netCode}`;
+    // axios.post(url, posted).then((ret) => {
+    //   const byteCharacters = atob(ret.data.b64);
+    //   const byteNumbers = new Array(byteCharacters.length);
+    //   for (let i = 0; i < byteCharacters.length; i++) {
+    //     byteNumbers[i] = byteCharacters.charCodeAt(i);
+    //   }
+    //   const byteArray = new Uint8Array(byteNumbers);
+    //   const file = new Blob([byteArray], { type: "application/pdf;base64" });
+    //   const fileURL = URL.createObjectURL(file);
+    //   window.open(fileURL);
+    // });
+
     const url = `${process.env.NEXT_PUBLIC_LAB_WHATSAPP_URL}/get-report/${params.labId}/${params.netCode}`;
 
     axios.get(url).then((ret) => {
@@ -86,8 +112,8 @@ export default function PatientResultsPage({ params }: pageParams) {
               debt: parseFloat(ret.data.debt),
             });
 
-            let found = ret.data.panels.find( (x:any) => x.verified == 1);            
-            if( found ) setSomeReady(true);
+            let found = ret.data.panels.find((x: any) => x.verified == 1);
+            if (found) setSomeReady(true);
           } else {
             setLoadingMessage(
               locale == "ar"
@@ -144,16 +170,18 @@ export default function PatientResultsPage({ params }: pageParams) {
 
           {data.debt <= 0 ? (
             <Button
-              onClick={() => hndlReportClick()}
+              onClick={() => hndlReportClick(data)}
               className="mt-8 mx-4 dark:text-white"
             >
               {locale == "en" ? "Display Results" : "عرض النتائج"}
             </Button>
           ) : (
             <h1 className="my-4 text-red-600 dark:text-red-400">
-              {someReady? (locale == "en"
-                ? "Please contact us to get the results"
-                : "رجاء التواصل معنا للحصول على النتائج") : ""}
+              {someReady
+                ? locale == "en"
+                  ? "Please contact us to get the results"
+                  : "رجاء التواصل معنا للحصول على النتائج"
+                : ""}
             </h1>
           )}
 
