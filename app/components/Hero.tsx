@@ -84,7 +84,7 @@ const EnglishInfo = () => {
         technology to the diagnosis and management of human disease.
       </h2>
       <h2 className="text-gray-800 dark:text-gray-200">
-      <span className="font-bold text-primary">Our Mission: </span>The mission of Tiba laboratory is to provide high- quality,
+      <span className="font-bold text-primary">Mission: </span>The mission of Tiba laboratory is to provide high- quality,
         cost-effective lab services in a manner that supports the patient care
         mission of General Authority for Health Accreditation Registration
         (GAHAR). We aim giving the clinician the best possible advice about what
