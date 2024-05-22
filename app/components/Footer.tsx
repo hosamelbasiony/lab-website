@@ -86,6 +86,13 @@ export default async function Footer() {
                       src="/icons/icons8-youtube-48.png"
                     ></img>
                   </a>
+                  <a href="Https://t.me/tibalab" className="mx-2" target="_blank">
+                    <img
+                      width={30}
+                      height={30}
+                      src="/icons/icons8-telegram-48.png"
+                    ></img>
+                  </a>
                   <a href={labData.linkedin} className="mx-2" target="_blank">
                     <img
                       width={30}
