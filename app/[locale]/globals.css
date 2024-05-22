@@ -157,7 +157,7 @@
 /* SCROLL HEADER STUFF GOES HERE */
 
 .nav-container {
-	position: fixed!important;
+	/* position: fixed!important; */
 	top: 0;
 	left: 0;
 	padding: 0;
