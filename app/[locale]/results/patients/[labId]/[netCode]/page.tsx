@@ -32,6 +32,7 @@ export default function PatientResultsPage({ params }: pageParams) {
   const locale = useLocale();
   const initialized = React.useRef(false);
 
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [loadingMessage, setLoadingMessage] = React.useState<string>("...");
   const [someReady, setSomeReady] = React.useState<boolean>(true);
 
@@ -84,6 +85,8 @@ export default function PatientResultsPage({ params }: pageParams) {
 
     const url = `${process.env.NEXT_PUBLIC_LAB_WHATSAPP_URL}/get-report/${params.labId}/${params.netCode}`;
 
+    setLoading(true);
+
     axios.get(url).then((ret) => {
       const byteCharacters = atob(ret.data.b64);
       const byteNumbers = new Array(byteCharacters.length);
@@ -93,6 +96,9 @@ export default function PatientResultsPage({ params }: pageParams) {
       const byteArray = new Uint8Array(byteNumbers);
       const file = new Blob([byteArray], { type: "application/pdf;base64" });
       const fileURL = URL.createObjectURL(file);
+      
+      setLoading(false);
+      
       window.open(fileURL);
     });
   };
@@ -167,6 +173,18 @@ export default function PatientResultsPage({ params }: pageParams) {
               )}
             </h1>
           ))}
+
+          {loading ? (
+            <div className="m-4 mt-8">
+              <h1 className="text-2xl">
+                {locale == "en"
+                  ? "Preparing report .. please wait !"
+                  : "جاري تجهيز التقرير .. رجاء الانتظار !"}{" "}
+              </h1>
+            </div>
+          ) : (
+            <></>
+          )}
 
           {data.debt <= 0 ? (
             <Button
